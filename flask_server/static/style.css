@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20dvh 10dvh 1fr;
+}
+
+div{
+    justify-self: center;
+    align-self: center;
+}
+
+div.form-login{
+    grid-row: 3;
+}
+
+span{
+    font-size: 60px !important;
+}
