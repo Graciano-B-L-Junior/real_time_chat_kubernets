@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/chat_page.css">
+    <script src="static/chat_script.js"></script>
     <title>speed-chat</title>
 </head>
 <body>
@@ -11,9 +12,11 @@
         <div class="chat-scroll">
         </div>
         <div class="input-chat">
-            <input type="text" name="" id="">
-            <button>Send</button>
+            <input type="text" name="" id="message">
+            <button class="send-message">Send</button>
         </div>
     </div>
+    <h2>User:{{user}}</h2>
+    <input type="hidden" name="user" id="user" value="{{user}}">
 </body>
 </html>

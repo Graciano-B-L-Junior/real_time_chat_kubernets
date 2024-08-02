@@ -1,8 +1,9 @@
-from flask import Flask,request,render_template,url_for,redirect
-
+from flask import Flask,request,render_template,url_for,redirect,session
 from db_aux import connect_to_mysql
 
+
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 @app.route("/",methods=['GET', 'POST'])
 def index():
@@ -19,6 +20,8 @@ def index():
             conn.close()
             return render_template('index.html',error='username or password is wrong!')
         else:
+            session['username'] = username
+            
             return redirect(url_for('chat_page'))
 
 @app.route("/signin",methods=['GET', 'POST'])
@@ -40,7 +43,8 @@ def sign_in():
 
 @app.route("/chat",methods=['GET',])
 def chat_page():
-    return render_template('chat_page.html')
+    user = session['username']
+    return render_template('chat_page.html',user=user)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
