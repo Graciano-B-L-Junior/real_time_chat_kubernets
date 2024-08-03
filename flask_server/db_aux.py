@@ -3,7 +3,7 @@ import time
 
 def get_connection() -> connection.MySQLConnection:
     cnx = connection.MySQLConnection(user='root', password='root',
-                                 host='mysql_container',
+                                 host='speedchatdb',
                                  database='speedchatdb')
     return cnx
 
@@ -16,7 +16,7 @@ def connect_to_mysql(attempts=3, delay=3):
     while attempt < attempts + 1:
         try:
             conn = connection.MySQLConnection(user='root', password='root',
-                                 host='mysql_container',
+                                 host='speedchatdb',
                                  database='speedchatdb')
             print("connection successfully")
             return conn
